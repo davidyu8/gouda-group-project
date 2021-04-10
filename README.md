@@ -1,5 +1,7 @@
 ```
 . . O
 . O X
-. X X
+O X X
 ```
+
+TEAM 0 WINS
