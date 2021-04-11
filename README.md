@@ -1,10 +1,14 @@
-```
-. . O
-. O X
-O X X
-```
+# Project Proposal
+## Abstract
+## Deliverables
+## Resources
+## Tools/Skills
+## Risks
+## Ethics
+## Timeline
 
-TEAM 0 WINS
+## Notes
+This is stuff that David wrote down during Saturday's meeting. I'll delete it before we submit.
 
 2. full success is inputting a list of available ingredients, and then a ML model that creates a new recipe to help you use up as much of your ingredients as possible.
 
