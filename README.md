@@ -1,10 +1,10 @@
 # Project Proposal
 ## Abstract
-The goal is to design and implement a program that will take in existing recipe data and output a coherent computer-generated recipe fit with the required ingredients and directions to follow sucessfully. We anticipate the creation of this program will draw primarily on these skills: _data manipulation_ (to format the data in a way that facilitates the model's success), _natural language processing_ (to break down and understand a recipe, and to write a novel one), and _machine learning_ (to discover patterns across recipes, and to avoid generating unreasonable results).
+The goal is to design and implement a program that will take in an existing list of ingredients and output a coherent computer-generated recipe with the required ingredients and directions to follow sucessfully. We anticipate the creation of this program will draw primarily on these skills: _data manipulation_ (to format the data in a way that facilitates the model's success), _natural language processing_ (to break down and understand a recipe, and to write a novel one), and _machine learning_ (to discover patterns across recipes, and to avoid generating unreasonable results).
 ## Deliverables
 Full Success: 
 
-A fully successful version of our project would be a machine learning model that can create new recipes based on the ingredient data that it is given. If everything goes according to plan, someone with no coding experience should be able to seamlessly input their ingredients to obtain a somewhat coherent recipe, with all the intructions and measurments. 
+A fully successful version of our project would be a machine learning model that can create new recipes based on the ingredient data that it is given. If everything goes according to plan, someone with no coding experience should be able to seamlessly input their ingredients to obtain a somewhat coherent recipe, with all the intructions and measurements. 
 
 Partial Success: 
 
@@ -12,7 +12,7 @@ The most difficult task would be the actual generation of a new recipe. If this 
 
 Bonus Success: 
 
-In order to showcase the culinary diversity of our recipes, we would like to develop a map that will plot the origins of all the recipes. We can do this using tools like px.scatter_mapbox. We would plot the exisiting recipes according to their countries of origin in our first deliverable. For our final deliverable we would plot a cloropleth showing how influencial each country is in the creation of new recipes.
+In order to showcase the culinary diversity of our recipes, we would like to develop a map that will plot the origins of all the recipes. We can do this using tools like px.scatter_mapbox. We would plot the exisiting recipes according to their countries of origin in our first deliverable. For our final deliverable we would plot a choropleth showing how influencial each country is in the creation of new recipes.
 ## Resources
 For our first deliverable we will be working with a few different recipe datasets found on Kaggle. These datasets can be found [here](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions?select=PP_recipes.csv). These datasets only contain recipes from [food.com](https://www.food.com/). This will give us a framework to understand what sorts of data need to be scraped from the internet for our next deliverable which will contain recipe data from a multitude of different sources, spanning different cuisines and cultures.
 ## Tools/Skills
