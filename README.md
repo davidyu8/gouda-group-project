@@ -40,16 +40,3 @@ In this period, we target our main source of potential bias (failing to treat di
 Finally, our ultimate goal is to design and implement a machine learning model that can analyze the data we have collected and produce a brand-new recipe to match the supplies that the user already has on hand. We anticipate this will draw on multiple techniques: natural language processing (to break down and understand a recipe, and to write a novel one), machine learning (to discover patterns across recipes, and to avoid generating unreasonable results), and data manipulation (to format the data in a way that facilitates the model's success).
 
 Additionally, if there is time, the program will be extended using the geographic map detailed earlier. This will help make the program more user-friendly and the recipe data more easily searchable.
-
-## Notes
-This is stuff that David wrote down during Saturday's meeting. I'll delete it before we submit.
-
-2. full success is inputting a list of available ingredients, and then a ML model that creates a new recipe to help you use up as much of your ingredients as possible.
-
-partial success is taking in a list of available ingredients, and then finding a recipe that matches most of the ingredients, and then sending the appropriate link.
-
-Timeline
-
-Checkpoint 1: A simple model that takes in a list of ingredients and finds a recipe that uses them.
-Checkpoint 2: Expand to new data sets, scrape, and integrate with existing data.
-Checkpoint 3: Train a ML model on the totality of the data, so that it can generate new and exciting recipes to try.
