@@ -9,6 +9,10 @@ A fully successful version of our project would be a machine learning model that
 Partial Success: 
 
 The most difficult task would be the actual generation of a new recipe. If this task turns out to be too difficult, we would like our model to be able to point to an existing recipe based on the ingredients the user inputs. The resulting recipes will be drawn from a pool of recipes gathered online through _web scraping_. There should be an equitable representation of different cultures and culinary practices in the resulting recipes. 
+
+Bonus Success: 
+
+In order to showcase the culinary diversity of our recipes, we would like to develop a map that will plot the origins of all the recipes. We can do this using tools like px.scatter_mapbox. We would plot the exisiting recipes according to their countries of origin in our first deliverable. For our final deliverable we would plot a cloropleth showing how influencial each country is in the creation of new recipes.
 ## Resources
 For our first deliverable we will be working with a few different recipe datasets found on Kaggle. These datasets can be found [here](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions?select=PP_recipes.csv). These datasets only contain recipes from [food.com](https://www.food.com/). This will give us a framework to understand what sorts of data need to be scraped from the internet for our next deliverable which will contain recipe data from a multitude of different sources, spanning different cuisines and cultures.
 ## Tools/Skills
