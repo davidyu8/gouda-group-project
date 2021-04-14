@@ -1,6 +1,6 @@
 # Project Proposal
 ## Abstract
-The goal is to design and implement a program that will take in existing recipe data and output a coherent computer-generated recipe fit with the required ingredients and directions to follow sucessfully. We anticipate the creation of this program will draw primarily on these skills: data manipulation (to format the data in a way that facilitates the model's success), natural language processing (to break down and understand a recipe, and to write a novel one), and machine learning (to discover patterns across recipes, and to avoid generating unreasonable results).
+The goal is to design and implement a program that will take in existing recipe data and output a coherent computer-generated recipe fit with the required ingredients and directions to follow sucessfully. We anticipate the creation of this program will draw primarily on these skills: _data manipulation_ (to format the data in a way that facilitates the model's success), _natural language processing_ (to break down and understand a recipe, and to write a novel one), and _machine learning_ (to discover patterns across recipes, and to avoid generating unreasonable results).
 ## Deliverables
 Full Success: 
 
