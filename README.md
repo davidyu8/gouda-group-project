@@ -4,11 +4,11 @@ The goal is to design and implement a program that will take in existing recipe 
 ## Deliverables
 Full Success: 
 
-A fully successful version of our project would be a machine learning model that can create new recipes based on the ingredient data that it is given. If everything goas according to plan, someone with no coding experience should be able to seamlessly input their ingredients to obtain a somewhat coherent recipe, with all the intrsutions and measurments. 
+A fully successful version of our project would be a machine learning model that can create new recipes based on the ingredient data that it is given. If everything goes according to plan, someone with no coding experience should be able to seamlessly input their ingredients to obtain a somewhat coherent recipe, with all the intructions and measurments. 
 
 Partial Success: 
 
-The most difficult task would be the actual generation of a new recipe. If this task turns out to be too difficult, we would like our model to be able to point to an existing recipe based on the ingredients the user inputs. The resulting recipes will be drawn from a pool of recipes gathered online through web scraping. There should be quitable representation of different cultures and culinary practices in the resulting recipes. 
+The most difficult task would be the actual generation of a new recipe. If this task turns out to be too difficult, we would like our model to be able to point to an existing recipe based on the ingredients the user inputs. The resulting recipes will be drawn from a pool of recipes gathered online through _web scraping_. There should be an equitable representation of different cultures and culinary practices in the resulting recipes. 
 ## Resources
 For our first deliverable we will be working with a few different recipe datasets found on Kaggle. These datasets can be found [here](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions?select=PP_recipes.csv). These datasets only contain recipes from [food.com](https://www.food.com/). This will give us a framework to understand what sorts of data need to be scraped from the internet for our next deliverable which will contain recipe data from a multitude of different sources, spanning different cuisines and cultures.
 ## Tools/Skills
