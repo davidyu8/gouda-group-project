@@ -339,7 +339,7 @@ VOCABULARY_SIZE = len(tokenizer.word_counts) + 1 # record for later
 data_vec = tokenizer.texts_to_sequences(data_filter) # vectorize the data
 ```
 
-The following cell sets up the models for text generation. The original models (which are set up for training) are shown in `recipe_generator.ipynb`.
+The following cell sets up the models for text generation. The original models (which are set up for training) are shown in `recipe_generator.ipynb`. The blog post referenced above uses an LSTM model, which we modified slightly and used as our baseline model. We then designed a second model using a GRU layer instead, because we weren't able to train our model for a long period of time, and we wanted to obtain sensible results more quickly.
 
 ```python
 # create generator using LSTM model
