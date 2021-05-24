@@ -1,3 +1,11 @@
+# Introduction
+This project is a collection of tasks that we worked on, all under the broad theme of online recipes. In this document, we demonstrate two pieces of functionality, a recipe finder and a recipe generator. The recipe finder allows users to find recipes that include ingredients of their choice, from a database of over one million recipes. The recipe generator creates a new "recipe" in response to user input.
+
+## GitHub Organization
+
+
+## Credits
+
 ```python
 import json
 import pandas as pd
