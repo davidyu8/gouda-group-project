@@ -9,16 +9,25 @@ We have several folders and files in this repository. The purpose of each one is
 3. Data: This folder contains the data we used to train a recipe classifier (which we are still working on). The original data source is on [Kaggle](https://www.kaggle.com/c/whats-cooking). Our main source of data (the one million recipes) is not in this folder (it is too large). The original compressed version can be found [here](http://im2recipe.csail.mit.edu/dataset/login/). Instructions and code for preparing the data for use are located in ```recipes1M_to_DB.ipynb```.
 4. Presentations: This folder has our old class presentations.
 ### Files
-1. .gitignore
-2. README.md
-3. find_recipe.ipynb
-4. proposal.md
-5. recipe_classifier_colab.ipynb
-6. recipes1M_to_DB.ipynb
+1. .gitignore: Text file containing filenames for GitHub Desktop to ignore.
+2. README.md: You are here!
+3. find_recipe.ipynb: Our original version of the recipe finder. The current version is demonstrated below.
+4. proposal.md: The project proposal we wrote at the beginning of the quarter.
+5. recipe_classifier_colab.ipynb: Defines and trains classification models on the Kaggle data mentioned earlier.
+6. recipe_generator.ipynb: Defines and trains RNNs to generate new recipes.
+7. recipes1M_to_DB.ipynb: Contains code and instructions to prepare the recipes1M data for use in our project.
 
 ## Credits
+We want to give credit to [Kaggle](https://www.kaggle.com/) and the [Recipe1M team](http://im2recipe.csail.mit.edu/) at MIT for originally gathering the data that we used. We also want to credit [Oleksii Trekhleb](https://github.com/trekhleb) for the [post](https://www.kdnuggets.com/2020/07/generating-cooking-recipes-using-tensorflow.html) he wrote on the [KDNuggets](https://www.kdnuggets.com/) blog. This post provided a lot of helpful guidance to get the generation part of our project off the ground. In ```recipe_generator.ipynb```, we have clearly commented areas in which we adapted code from his post.
+
+## Next Steps
+We are currently still working on a few tasks, including:
+1. A website, to be the central hub that wraps up all the things we've done into a single user interface.
+2. A couple more text generation models. One merges the mixed data features strategy (as shown in [lecture](https://nbviewer.jupyter.org/github/PhilChodrow/PIC16B/blob/master/lectures/tf/tf-4.ipynb)) into the basic RNN structure, and the other uses a generative adversarial network (GAN) to build new recipes.
+We anticipate that we will be able to construct the website, but the models are 50-50 to be completed (the GAN perhaps even less).
 
 # Code Demonstration
+Below we show examples of our two recipe tasks at work.
 
 ```python
 import json
@@ -27,7 +36,7 @@ import sqlite3
 import numpy as np
 ```
 
-# 1. Recipe Finder
+## Recipe Finder
 
 The function below is our __recipe finder__ function. It allows a user to input a list of ingredients, and retrieve some relevant recipes with matching ingredients.
 
@@ -91,23 +100,6 @@ def find_recipe(ingredients, n = 5):
 find_recipe(["potato", "asparagus"], n = 10)
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -195,10 +187,9 @@ find_recipe(["potato", "asparagus"], n = 10)
 
 
 
-#2. Recipe Generation
+## Recipe Generation
 
-In this section, we'll develop a __recipe generation__ function. It allows a user to input ingredients, and generate recipes using models trained on recurrent neural networks. At the moment, we're working with an __LSTM__ (long short-term memory) model, and a __GRU__ (Gated Recurrent Units) model.
-
+In this section, we develop a __recipe generation__ function. It allows a user to input ingredients, and generate recipes using models trained on recurrent neural networks. At the moment, we're working with an __LSTM__ (long short-term memory) model, and a __GRU__ (Gated Recurrent Units) model.
 
 ```python
 import tensorflow as tf
@@ -210,7 +201,7 @@ import pathlib # for setting up checkpoint directory
 import os # ditto
 ```
 
-## a.) Auxiliary Code + Functions
+### Auxiliary Code + Functions
 
 The code below is used in prepping the `generate_recipe` function.
 
@@ -348,16 +339,17 @@ VOCABULARY_SIZE = len(tokenizer.word_counts) + 1 # record for later
 data_vec = tokenizer.texts_to_sequences(data_filter) # vectorize the data
 ```
 
+The following cell sets up the models for text generation. The original models (which are set up for training) are shown in `recipe_generator.ipynb`.
 
 ```python
 # create generator using LSTM model
 generator_LSTM = tf.keras.models.Sequential([
   layers.Embedding(input_dim = VOCABULARY_SIZE,
                   output_dim = 256,
-                  batch_input_shape = [1, None]),
+                  batch_input_shape = [1, None]), # for generation, we use a batch size of 1. Our training code uses a batch size of 64.
   layers.LSTM(units = 1024,
-              return_sequences = True,
-              stateful = True,
+              return_sequences = True, # keep the sequence length dimension
+              stateful = True, # remember the old state of the model from batch to batch
               recurrent_initializer = tf.keras.initializers.GlorotNormal()),
   layers.Dense(VOCABULARY_SIZE)         
 ])
@@ -380,7 +372,7 @@ generator_GRU.load_weights("/content/drive/Shareddrives/Gouda Group Project/reci
 generator_GRU.build(tf.TensorShape([1, None]))
 ```
 
-## b.) Main Function
+### Main Function
 
 Below is the main `generate_recipe` function.
 
@@ -548,144 +540,4 @@ generate_recipe(n = 5, model = "LSTM", seed = "lemon", length = 500, temperature
     • Add the remaining mixture over the meat and st
     
 
-## 3. Recipe Classification
-
-This section is currently not finished. Issues with the database make this function unlikely to be successful.
-
-#a.) Auxiliary Functions
-
-
-```python
-def standardization(input_data):
-    lowercase = tf.strings.lower(input_data)
-    no_punctuation = tf.strings.regex_replace(lowercase, '[%s]' % re.escape(string.punctuation),'')
-    return no_punctuation
-```
-
-
-```python
-max_tokens = 1500
-sequence_length = 40
-
-vectorize_layer = TextVectorization(
-    standardize = standardization,
-    max_tokens = max_tokens,
-    output_mode = 'int',
-    output_sequence_length = sequence_length)
-```
-
-
-```python
-
-```
-
-##b.) Main Function
-
-
-```python
-def recipe_classifier(recipe, guess):
-    """
-    Function used for the recipe classification game. 
-    
-    recipe: input recipe to be classified
-    guess: cuisine guess made by the user
-    """
-
-    model = tf.keras.models.load_model('/content/drive/Shareddrives/Gouda Group Project/classifier_model')
-
-    recipe_vector = vectorize_layer(recipe)
-
-    return model.predict(recipe_vector)
-```
-
-
-```python
-recipe_to_guess = import_data(1)
-recipe_to_guess
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>title</th>
-      <th>instructions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Worlds Best Mac and Cheese</td>
-      <td>["Preheat the oven to 350 F. Butter or oil an ...</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-recipe_classifier(recipe_to_guess["instructions"][0], "american")
-```
-
-
-    ---------------------------------------------------------------------------
-
-    AttributeError                            Traceback (most recent call last)
-
-    <ipython-input-21-beaef3766172> in <module>()
-    ----> 1 recipe_classifier(recipe_to_guess["instructions"][0], "american")
-    
-
-    <ipython-input-7-60f2a960403c> in recipe_classifier(recipe, guess)
-          9     model = tf.keras.models.load_model('/content/drive/Shareddrives/Gouda Group Project/classifier_model')
-         10 
-    ---> 11     recipe_vector = vectorize_layer(recipe)
-         12 
-         13     return model.predict(recipe_vector)
-    
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/keras/engine/base_layer.py in __call__(self, *args, **kwargs)
-       1006       with ops.name_scope_v2(name_scope):
-       1007         if not self.built:
-    -> 1008           self._maybe_build(inputs)
-       1009 
-       1010         with autocast_variable.enable_auto_cast_variables(
-    
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/keras/engine/base_layer.py in _maybe_build(self, inputs)
-       2708         # operations.
-       2709         with tf_utils.maybe_init_scope(self):
-    -> 2710           self.build(input_shapes)  # pylint:disable=not-callable
-       2711       # We must set also ensure that the layer is marked as built, and the build
-       2712       # shape is stored since user defined build functions may not be calling
-    
-
-    /usr/local/lib/python3.7/dist-packages/tensorflow/python/keras/layers/preprocessing/text_vectorization.py in build(self, input_shape)
-        541     # the expression needs to evaluate to True in that case.
-        542     if self._split is not None:
-    --> 543       if input_shape.ndims > 1 and not input_shape[-1] == 1:  # pylint: disable=g-comparison-negation
-        544         raise RuntimeError(
-        545             "When using TextVectorization to tokenize strings, the innermost "
-    
-
-    AttributeError: 'NoneType' object has no attribute 'ndims'
-
+# Conclusion
