@@ -541,3 +541,6 @@ generate_recipe(n = 5, model = "LSTM", seed = "lemon", length = 500, temperature
     
 
 # Conclusion
+We really enjoyed designing and implementing this project. The recipe finder is useful because it can draw upon a huge reservoir to make recipe suggestions in response to detailed user requests. If you want to use up a specific set of ingredients that will expire soon, this function provides a way to quickly obtain only the recipes that satisfy that constraint.
+
+The recipe generator was quite fun as well. It was really cool to see that our model could learn English and recipe-specific language with just a couple hours of training, and also simultaneously funny to see the clear culinary genius that it had learned as well.
