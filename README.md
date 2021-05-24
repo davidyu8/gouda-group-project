@@ -1,10 +1,24 @@
 # Introduction
 This project is a collection of tasks that we worked on, all under the broad theme of online recipes. In this document, we demonstrate two pieces of functionality, a recipe finder and a recipe generator. The recipe finder allows users to find recipes that include ingredients of their choice, from a database of over one million recipes. The recipe generator creates a new "recipe" in response to user input.
 
-## GitHub Organization
-
+## Repository Organization
+We have several folders and files in this repository. The purpose of each one is explained below.
+### Folders
+1. .ipynb_checkpoints: This holds past versions of some of our code. The user doesn't need to access this.
+2. Archive: This contains a variety of files that are currently not needed but might be useful later.
+3. Data: This folder contains the data we used to train a recipe classifier (which we are still working on). The original data source is on [Kaggle](https://www.kaggle.com/c/whats-cooking). Our main source of data (the one million recipes) is not in this folder (it is too large). The original compressed version can be found [here](http://im2recipe.csail.mit.edu/dataset/login/). Instructions and code for preparing the data for use are located in ```recipes1M_to_DB.ipynb```.
+4. Presentations: This folder has our old class presentations.
+### Files
+1. .gitignore
+2. README.md
+3. find_recipe.ipynb
+4. proposal.md
+5. recipe_classifier_colab.ipynb
+6. recipes1M_to_DB.ipynb
 
 ## Credits
+
+# Code Demonstration
 
 ```python
 import json
