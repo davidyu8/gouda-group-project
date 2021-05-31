@@ -27,7 +27,7 @@ Place this file in the top-level directory of your cloned repository and check t
 
 It is important that both of these conditions are satisfied before proceeding! The recipes1M.db file is large (over 1.5 GB) and you do not want to attempt to push it to GitHub.
 
-Next, run the file `prepare_data.py`, and you will be good to go!
+Next, open up a command line interface. Activate a Python environment and change the directory to `py`. Then run the file `prepare_data.py` (by typing `python prepare_data.py`), and you will be good to go! This process may take a few minutes. It will periodically print updates on its progress.
 
 ## Location of recipes1M.db
 To train new models (using `recipe_generator.ipynb`), recipes1M.db must be in the "data" folder. In order to run the website, recipes1M.db must be in the "Flask_Site" folder.
