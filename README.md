@@ -22,7 +22,7 @@ To use this repository, clone it to your machine and follow these instructions, 
 To obtain the data, visit the [pic2recipe](http://pic2recipe.csail.mit.edu/) website, and follow the instructions to download the dataset. This will involve creating an account. Next, download the data from the link labeled "Layers". The file should be about 400 MB in size, and will take a while to download!
 
 Place this file in the top-level directory of your cloned repository and check that the following conditions hold.
-1. The data file is named "recipe1M_layers.tar.gz" (this is the default name). 
+1. The data file is named "recipe1M_layers.tar.gz" (this is the default name). If the file is named "recipe1M_layers.tar" without the .gz extension, it's possible that your browser decompressed the file upon downloading. If this occurs, try downloading the file via chrome, and the .gz extension should be preserved.
 2. There is a .gitignore text file in the repository that contains both "recipe1M_layers.tar.gz" and "recipes1M.db" in it. It is fine if there's other text as well.
 
 It is important that both of these conditions are satisfied before proceeding! The recipes1M.db file is large (over 1 GB) and you do not want to attempt to push it to GitHub.
