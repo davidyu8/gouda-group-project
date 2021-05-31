@@ -16,23 +16,29 @@ We have several folders and files in this repository. The purpose of each one is
 6. `recipe_generator.ipynb`: Defines and trains RNNs to generate new recipes. If you want to make your own models, this is the place to do it!
 
 # Installation
-To use this repository, clone it to your machine and follow the instructions, which will walk you through the process of preparing the recipes1M.db database.
+To use this repository, clone it to your machine and follow these instructions, which will walk you through the process of preparing the recipes1M.db database.
 
 ## Data Preparation
-To obtain the data, visit the [pic2recipe](http://pic2recipe.csail.mit.edu/) website, and follow the instructions to download the dataset. This will involve creating an account. Next, go to the [download](http://im2recipe.csail.mit.edu/dataset/download/) page and download the data from the link labeled "Layers".
+To obtain the data, visit the [pic2recipe](http://pic2recipe.csail.mit.edu/) website, and follow the instructions to download the dataset. This will involve creating an account. Next, go to the [download](http://im2recipe.csail.mit.edu/dataset/download/) page and download the data from the link labeled "Layers". The file should be about 400 MB in size, and will take a while to download!
 
 Place this file in the top-level directory of your cloned repository and check that the following conditions hold.
 1. The data file is named "recipe1M_layers.tar.gz" (this is the default name). 
 2. There is a .gitignore text file in the repository that contains both "recipe1M_layers.tar.gz" and "recipes1M.db" in it. It is fine if there's other text as well.
 
-It is important that both of these conditions are satisfied before proceeding! The recipes1M.db file is large (over 1.5 GB) and you do not want to attempt to push it to GitHub.
+It is important that both of these conditions are satisfied before proceeding! The recipes1M.db file is large (over 1 GB) and you do not want to attempt to push it to GitHub.
 
-Next, open up a command line interface. Activate a Python environment and change the directory to `py`. Then run the file `prepare_data.py` (by typing `python prepare_data.py`), and you will be good to go! This process may take a few minutes. It will periodically print updates on its progress.
+Next, open up a command line interface. Activate a Python environment and change the directory to the `py` folder. Then run the file `prepare_data.py` (by typing `python prepare_data.py`). This may take a few minutes. The file will periodically print updates on its progress. If you see "conversion successful!", then you are good to go!
 
 ## Location of recipes1M.db
 To train new models (using `recipe_generator.ipynb`), recipes1M.db must be in the "data" folder. In order to run the website, recipes1M.db must be in the "Flask_Site" folder.
 
 # Demo
+
+## Website
+
+## Recipe Finding
+
+## Recipe Generating
 
 # Conclusion
 We really enjoyed designing and implementing this project. The recipe finder is useful because it can draw upon a huge reservoir to make recipe suggestions in response to detailed user requests. If you want to use up a specific set of ingredients that will expire soon, this function provides a way to quickly obtain only the recipes that satisfy that constraint.
@@ -47,13 +53,6 @@ We want to give credit to the [Recipe1M team](http://im2recipe.csail.mit.edu/) a
 
 
 
-
-
-## Next Steps
-We are currently still working on a few tasks, including:
-1. A website, to be the central hub that wraps up all the things we've done into a single user interface.
-2. A couple more text generation models. One merges the mixed data features strategy (as shown in [lecture](https://nbviewer.jupyter.org/github/PhilChodrow/PIC16B/blob/master/lectures/tf/tf-4.ipynb)) into the basic RNN structure, and the other uses a generative adversarial network (GAN) to build new recipes.
-We anticipate that we will be able to construct the website, but the models are 50-50 to be completed (the GAN perhaps even less).
 
 # Code Demonstration
 Below we show examples of our two recipe tasks at work.
