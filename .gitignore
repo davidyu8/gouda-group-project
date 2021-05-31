@@ -1,7 +1,3 @@
 recipe1M_layers.tar.gz
 recipes1M.db
-tmp\checkpoints\ckpt_2.data-00000-of-00001
-tmp\checkpoints\ckpt_3.data-00000-of-00001
-tmp\checkpoints\ckpt_4.data-00000-of-00001
-tmp\checkpoints\ckpt_5.data-00000-of-00001
-temp.txt
+.DS_Store
