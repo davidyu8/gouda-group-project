@@ -1,3 +1,7 @@
 recipe1M_layers.tar.gz
 recipes1M.db
 .DS_Store
+
+weights/
+.ipynb_checkpoints
+__pycache__
