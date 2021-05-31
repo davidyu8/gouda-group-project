@@ -7,7 +7,7 @@ This repository allows you to (a) search for recipes that match a list of ingred
 We have several folders and files in this repository. The purpose of each one is explained below.
 ### Folders
 1. Flask_Site: This folder contains the material needed to run the recipe website locally.
-2. data: This folder will contain our main source of data, a colelction of over 1 million recipes located [here](http://im2recipe.csail.mit.edu/dataset/login/). We say "will" because the data set is large and therefore not actually included in the repository. Instructions and code for preparing the data are in the Installation section.
+2. data: This folder will contain our main source of data, a collection of over 1 million recipes located [here](http://im2recipe.csail.mit.edu/dataset/login/). We say "will" because the data set is large and therefore not actually included in the repository. Instructions and code for preparing the data are in the Installation section.
 3. py: This folder contains various code files needed for the project.
 ### Files
 1. .gitignore: Text file containing filenames for GitHub Desktop to ignore.
