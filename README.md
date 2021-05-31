@@ -19,7 +19,7 @@ We have several folders and files in this repository. The purpose of each one is
 To use this repository, clone it to your machine and follow the instructions, which will walk you through the process of preparing the recipes1M.db database.
 
 ## Data Preparation
-To obtain the data, visit the (pic2recipe)[http://pic2recipe.csail.mit.edu/] website, and follow the instructions to download the dataset. This will involve creating an account. Next, go to the (download)[http://im2recipe.csail.mit.edu/dataset/download/] page and download the data from the link labeled "Layers".
+To obtain the data, visit the [pic2recipe](http://pic2recipe.csail.mit.edu/) website, and follow the instructions to download the dataset. This will involve creating an account. Next, go to the [download](http://im2recipe.csail.mit.edu/dataset/download/) page and download the data from the link labeled "Layers".
 
 Place this file in the top-level directory of your cloned repository and check that the following conditions hold.
 1. The data file is named "recipe1M_layers.tar.gz" (this is the default name). 
