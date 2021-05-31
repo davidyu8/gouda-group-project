@@ -42,7 +42,7 @@ df["ingredients"] = ingr_unpacked # replace columns
 df["instructions"] = istr_unpacked
 
 # convert to database
-conn = sqlite3.connect("recipes1M.db")
+conn = sqlite3.connect("data/recipes1M.db")
 df.to_sql("recipes", conn, if_exists = "replace", index = False, chunksize = 20000)
 
 # verify success

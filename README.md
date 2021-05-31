@@ -1,24 +1,53 @@
 # Introduction
-This project is a collection of tasks that we worked on, all under the broad theme of online recipes. In this document, we demonstrate two pieces of functionality, a recipe finder and a recipe generator. The recipe finder allows users to find recipes that include ingredients of their choice, from a database of over one million recipes. The recipe generator creates a new "recipe" in response to user input.
+In need of a new recipe? Have a few old pantry items that have be used up? Well, look no further, because the Gouda Group has the answer for you!
+
+This repository allows you to (a) search for recipes that match a list of ingredients, and (b) generate new recipes to try (if you dare). You could be cooking up a storm in no time! And for the technically inclined, we have included a full guide on how to train your own recipe generation models from scratch.
 
 ## Repository Organization
 We have several folders and files in this repository. The purpose of each one is explained below.
 ### Folders
-1. .ipynb_checkpoints: This holds past versions of some of our code. The user doesn't need to access this.
-2. Archive: This contains a variety of files that are currently not needed but might be useful later.
-3. Data: This folder contains the data we used to train a recipe classifier (which we are still working on). The original data source is on [Kaggle](https://www.kaggle.com/c/whats-cooking). Our main source of data (the one million recipes) is not in this folder (it is too large). The original compressed version can be found [here](http://im2recipe.csail.mit.edu/dataset/login/). Instructions and code for preparing the data for use are located in ```recipes1M_to_DB.ipynb```.
-4. Presentations: This folder has our old class presentations.
+1. Flask_Site: This folder contains the material needed to run the recipe website locally.
+2. data: This folder will contain our main source of data, a colelction of over 1 million recipes located [here](http://im2recipe.csail.mit.edu/dataset/login/). We say "will" because the data set is large and therefore not actually included in the repository. Instructions and code for preparing the data are in the Installation section.
+3. py: This folder contains various code files needed for the project.
 ### Files
 1. .gitignore: Text file containing filenames for GitHub Desktop to ignore.
 2. README.md: You are here!
-3. find_recipe.ipynb: Our original version of the recipe finder. The current version is demonstrated below.
 4. proposal.md: The project proposal we wrote at the beginning of the quarter.
-5. recipe_classifier_colab.ipynb: Defines and trains classification models on the Kaggle data mentioned earlier.
-6. recipe_generator.ipynb: Defines and trains RNNs to generate new recipes.
-7. recipes1M_to_DB.ipynb: Contains code and instructions to prepare the recipes1M data for use in our project.
+6. `recipe_generator.ipynb`: Defines and trains RNNs to generate new recipes. If you want to make your own models, this is the place to do it!
 
-## Credits
-We want to give credit to [Kaggle](https://www.kaggle.com/) and the [Recipe1M team](http://im2recipe.csail.mit.edu/) at MIT for originally gathering the data that we used. We also want to credit [Oleksii Trekhleb](https://github.com/trekhleb) for the [post](https://www.kdnuggets.com/2020/07/generating-cooking-recipes-using-tensorflow.html) he wrote on the [KDNuggets](https://www.kdnuggets.com/) blog. This post provided a lot of helpful guidance to get the generation part of our project off the ground. In ```recipe_generator.ipynb```, we have clearly commented areas in which we adapted code from his post.
+# Installation
+To use this repository, clone it to your machine and follow the instructions, which will walk you through the process of preparing the recipes1M.db database.
+
+## Data Preparation
+To obtain the data, visit the (pic2recipe)[http://pic2recipe.csail.mit.edu/] website, and follow the instructions to download the dataset. This will involve creating an account. Next, go to the (download)[http://im2recipe.csail.mit.edu/dataset/download/] page and download the data from the link labeled "Layers".
+
+Place this file in the top-level directory of your cloned repository and check that the following conditions hold.
+1. The data file is named "recipe1M_layers.tar.gz" (this is the default name). 
+2. There is a .gitignore text file in the repository that contains both "recipe1M_layers.tar.gz" and "recipes1M.db" in it. It is fine if there's other text as well.
+
+It is important that both of these conditions are satisfied before proceeding! The recipes1M.db file is large (over 1.5 GB) and you do not want to attempt to push it to GitHub.
+
+Next, run the file `prepare_data.py`, and you will be good to go!
+
+## Location of recipes1M.db
+To train new models (using `recipe_generator.ipynb`), recipes1M.db must be in the "data" folder. In order to run the website, recipes1M.db must be in the "Flask_Site" folder.
+
+# Demo
+
+# Conclusion
+We really enjoyed designing and implementing this project. The recipe finder is useful because it can draw upon a huge reservoir to make recipe suggestions in response to detailed user requests. If you want to use up a specific set of ingredients that will expire soon, this function provides a way to quickly obtain only the recipes that satisfy that constraint.
+
+The recipe generator was quite fun as well. It was really cool to see that our model could learn English and recipe-specific language with just a couple hours of training, and also simultaneously funny to see the clear culinary genius that it had learned as well.
+
+# Credits
+We want to give credit to the [Recipe1M team](http://im2recipe.csail.mit.edu/) at MIT for originally gathering the data that we used. We also want to credit [Oleksii Trekhleb](https://github.com/trekhleb) for the [post](https://www.kdnuggets.com/2020/07/generating-cooking-recipes-using-tensorflow.html) he wrote on the [KDNuggets](https://www.kdnuggets.com/) blog. This post provided a lot of helpful guidance to get the generation part of our project off the ground, particularly in `train.py` and `recipe_generator.ipynb`.
+
+
+
+
+
+
+
 
 ## Next Steps
 We are currently still working on a few tasks, including:
@@ -538,9 +567,3 @@ generate_recipe(n = 5, model = "LSTM", seed = "lemon", length = 500, temperature
     • Cover and stir for 3 minutes.
     • Add the oil in a small bowl and add the tomatoes, and cut into small mixing bowl.
     • Add the remaining mixture over the meat and st
-    
-
-# Conclusion
-We really enjoyed designing and implementing this project. The recipe finder is useful because it can draw upon a huge reservoir to make recipe suggestions in response to detailed user requests. If you want to use up a specific set of ingredients that will expire soon, this function provides a way to quickly obtain only the recipes that satisfy that constraint.
-
-The recipe generator was quite fun as well. It was really cool to see that our model could learn English and recipe-specific language with just a couple hours of training, and also simultaneously funny to see the clear culinary genius that it had learned as well.
