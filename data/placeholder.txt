@@ -1,3 +1,3 @@
 This is a placeholder file. It exists so that the "data" folder has contents
 that are not listed in .gitignore, so that GitHub recognizes that this folder
-does have contents and needs to be pushed.
+needs to be pushed.
