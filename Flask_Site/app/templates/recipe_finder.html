@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Recipe Finder{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+      <label for="ingredients">Please input a list of ingredients separated by a comma:</label>
+      <input name="ingredients">
+      
+      <input type="submit" value="Submit form">
+  </form>
+
+{% if ingredients %}
+<br>
+<p>We generated a recipe containing: {{ingredients}}</p>
+<p>Title: {{title}}</p>
+
+<p>Ingredients:</p>
+
+
+<ul>
+  {% for i in recipe_ingredients %}
+  <li>{{i}}</li>
+  {% endfor %}
+ </ul>
+
+<p>Instructions:</p>
+<ul>
+  {% for i in instructions %}
+  <li>{{i}}</li>
+  {% endfor %}
+ </ul>
+
+{% endif %}
+
+{% endblock %}
+
+

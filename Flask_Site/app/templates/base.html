@@ -1,0 +1,24 @@
+<!doctype html>
+<title>Gouda Group Project</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+  <h1>This Group is Pretty GOUDA!</h1>
+  <b>Navigation:</b>
+  <ul>
+    <li><a href="{{ url_for('main') }}">Main page</a></li>
+   <!--  <li><a href="{{ url_for('hello')}}">Hello</a></li>
+    <li><a href="{{ url_for('ask') }}">Ask</a></li>
+    <li><a href="{{ url_for('submit') }}">Submit</a></li>
+    <li><a href="{{ url_for('housewares.list') }}">List</a></li>
+    <li><a href="{{ url_for('auth.main') }}">User</a></li> -->
+    <li><a href="{{ url_for('recipe_finder') }}">Recipe Finder</a></li>
+    <li><a href="{{ url_for('generator') }}">GRU Generator</a></li>
+
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% block content %}{% endblock %}
+</section>

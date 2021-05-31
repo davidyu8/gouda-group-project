@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}GRU Generator{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+      <label for="ingredients">Please input an ingredient:</label>
+      <input name="ingredients">
+      
+      <input type="submit" value="Submit Ingredient">
+</form>
+
+<!-- <form method="post">
+      <label for="temperature">Please input a temperature:</label>
+      <input name="temperature">
+      
+      <input type="submit" value="Submit Temperature">
+</form> -->
+
+{% if ingredient %}
+<br>
+We generated a recipe: 
+<br>
+<ul>
+  {% for i in generated_recipe %}
+  <li>{{i}}</li>
+  {% endfor %}
+ </ul>
+<br>
+{% endif %}
+
+{% endblock %}
