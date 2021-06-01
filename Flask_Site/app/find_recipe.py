@@ -1,16 +1,10 @@
-import json
 import pandas as pd
-import numpy as np
-
 import sqlite3
 
-import click
 from flask import current_app, g
 from flask.cli import with_appcontext
 
 from flask import Blueprint, g, render_template, url_for, abort
-
-import tensorflow as tf
 
 def get_recipe_db():
 	if 'recipes1M' not in g:
@@ -22,7 +16,7 @@ def get_recipe_db():
 	return g.recipes1M
 
 def close_recipe_db(e=None):
-    receipe_db = g.pop('recipes1M', None)
+    recipe_db = g.pop('recipes1M', None)
 
     if recipe_db is not None:
         recipe_db.close()
@@ -76,7 +70,9 @@ def find_recipe(ingredients, n = 5):
 
       if (df["Score"] >= i).any() == True:
         return (df[df["Score"] >= i]).sample(n = n)
+    
+    # if we get this far, there were no recipes found
+    data = [["No matching recipes!", "", ""]]
+    df = pd.DataFrame(data, columns = ["title", "ingredients", "instructions"])
 
-    return "No matching recipes!"
-
-
+    return df

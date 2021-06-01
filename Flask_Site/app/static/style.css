@@ -1,6 +1,6 @@
 html {
     font-family: sans-serif;
-    background: AntiqueWhite;
+    background: snow;
     padding: 1rem;
 }
 
@@ -10,7 +10,7 @@ body {
 }
 
 h1 {
-    color: Indigo;
+    color: black;
     font-family: serif;
     margin: 1rem 0;
     text-align: center;
@@ -27,7 +27,7 @@ hr {
 }
 
 nav {
-    background: lightpink;
+    background: lightgray;
     padding: 0 0.5rem;
     border-radius: 25px;
 }

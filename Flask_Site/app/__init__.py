@@ -7,13 +7,7 @@ import numpy as np
 from .find_recipe import find_recipe
 from .generators import generate_recipe_GRU
 
-
-# Create web app, run with flask run
-# (set "FLASK_ENV" variable to "development" first!!!)
-
 app = Flask(__name__)
-
-# Create main page (fancy)
 
 @app.route('/')
 def main():
@@ -25,7 +19,7 @@ def generator():
         return render_template('generator.html')
     else:
         input_ingredient = request.form['ingredients']
-        generated_recipe = generate_recipe_GRU(1, seed=input_ingredient, length=500, temperature=0.8).split('•')
+        generated_recipe = generate_recipe_GRU(seed=input_ingredient, length=500, temperature=0.8).split('•')
         return render_template('generator.html', ingredient=input_ingredient,generated_recipe=generated_recipe)
 
 @app.route('/recipe_finder/', methods=['POST', 'GET'])
@@ -35,14 +29,15 @@ def recipe_finder():
     else:
         
         input_ingredients = request.form['ingredients'].split(',')
-        title = find_recipe(input_ingredients, 1)['title'].iloc[0]
-        
-        recipe_ingredients = find_recipe(input_ingredients, 1)['ingredients'].iloc[0][1:-1]
+
+        recipe = find_recipe(input_ingredients, 1)
+        title = recipe['title'].iloc[0]
+        recipe_ingredients = recipe['ingredients'].iloc[0][1:-1]
         ingredients_list = []
         for i in recipe_ingredients.split('",'):
             ingredients_list.append(i.replace('"',''))
         
-        instructions = find_recipe(input_ingredients, 1)['instructions'].iloc[0][1:-1]
+        instructions = recipe['instructions'].iloc[0][1:-1]
         instructions_list = []
         for j in instructions.split('",'):
             instructions_list.append(j.replace('"',''))

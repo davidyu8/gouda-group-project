@@ -7,7 +7,7 @@
 {% block content %}
 
 <form method="post">
-      <label for="ingredients">Please input an ingredient:</label>
+      <label for="ingredients">Please input a seed word (for example, an ingredient):</label>
       <input name="ingredients">
       
       <input type="submit" value="Submit Ingredient">
@@ -22,7 +22,7 @@
 
 {% if ingredient %}
 <br>
-We generated a recipe: 
+Below is the generated recipe:
 <br>
 <ul>
   {% for i in generated_recipe %}

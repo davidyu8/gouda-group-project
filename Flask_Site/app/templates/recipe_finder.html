@@ -7,7 +7,7 @@
 {% block content %}
 
 <form method="post">
-      <label for="ingredients">Please input a list of ingredients separated by a comma:</label>
+      <label for="ingredients">Please input a list of ingredients separated by commas:</label>
       <input name="ingredients">
       
       <input type="submit" value="Submit form">
@@ -15,7 +15,7 @@
 
 {% if ingredients %}
 <br>
-<p>We generated a recipe containing: {{ingredients}}</p>
+<p>Here is a recipe we found, which uses the following ingredients: {{ingredients}}</p>
 <p>Title: {{title}}</p>
 
 <p>Ingredients:</p>
