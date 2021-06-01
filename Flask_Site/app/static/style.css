@@ -1,6 +1,6 @@
 html {
     font-family: sans-serif;
-    background: snow;
+    background: lightblue;
     padding: 1rem;
 }
 
@@ -27,7 +27,7 @@ hr {
 }
 
 nav {
-    background: lightgray;
+    background: white;
     padding: 0 0.5rem;
     border-radius: 25px;
 }

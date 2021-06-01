@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Recipe Finder{% endblock %}</h1>
+  <h1>{% block title %}Find a Recipe{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
@@ -10,12 +10,12 @@
       <label for="ingredients">Please input a list of ingredients separated by commas:</label>
       <input name="ingredients">
       
-      <input type="submit" value="Submit form">
+      <input type="submit" value="Submit">
   </form>
 
 {% if ingredients %}
 <br>
-<p>Here is a recipe we found, which uses the following ingredients: {{ingredients}}</p>
+<p>Here is a recipe we found, which uses the requested ingredients</p>
 <p>Title: {{title}}</p>
 
 <p>Ingredients:</p>
