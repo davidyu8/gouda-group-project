@@ -30,9 +30,6 @@ It is important that both of these conditions are satisfied before proceeding! T
 
 Next, open up a command line interface. Activate a Python environment and change the directory to the `py` folder. Then run the file `prepare_data.py` (by typing `python prepare_data.py`). This may take a few minutes. The file will periodically print updates on its progress. If you see "conversion successful!", then you are good to go!
 
-## Location of recipes1M.db
-To train new models (using `recipe_generator.ipynb`), recipes1M.db must be in the "data" folder. In order to run the website, recipes1M.db must be in the "Flask_Site" folder.
-
 # Demo
 
 ## Website

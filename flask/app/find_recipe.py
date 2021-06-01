@@ -44,7 +44,7 @@ def find_recipe(ingredients, n = 5):
         where_statement += f"R.ingredients LIKE '%{i}%' OR "
     
     # open up dataset, automatically close
-    with sqlite3.connect("recipes1M.db") as conn:
+    with sqlite3.connect("../data/recipes1M.db") as conn:
         
         # grab ingredient matches
         query = \
