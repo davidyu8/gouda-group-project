@@ -1,8 +1,12 @@
+# recipe database
 recipe1M_layers.tar.gz
 recipes1M.db
-.DS_Store
 
+# model weights
 weights/gru
 weights/lstm
-.ipynb_checkpoints
-__pycache__
+
+# unneeded excess
+**/.DS_Store
+**/.ipynb_checkpoints
+**/__pycache__

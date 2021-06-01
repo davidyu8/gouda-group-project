@@ -44,6 +44,6 @@ def generate_recipe_GRU(seed, length, temperature):
 		result.append(next_char)
 
 		recipe = start + ''.join(result)
-		recipe.replace('␣', '')
+		recipe = recipe.replace('␣', '')
 
 	return recipe
