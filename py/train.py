@@ -1,15 +1,5 @@
-# -*- coding: utf-8 -*-
 """
-This program uses a variety of models to generate original recipe text.
-
-The code is organized as follows. The first section loads in the data and sets it up as a TensorFlow Dataset. The second section defines and trains the models (each model is given a subsection). The third and final section covers recipe generation.
-
-While most of the code in this file is our own, some of it was derived from the code written in this blog post (located at https://www.kdnuggets.com/2020/07/generating-cooking-recipes-using-tensorflow.html), from author Oleksii Trekhleb (https://github.com/trekhleb). Some of the overall structure of our program also follows the plan laid down in that post. Cells which use his code are clearly marked with a comment reading
-# Oleksii Trekhleb at the top.
-
-# Section 1: Data Preparation
-
-We connect the program to Google Drive, where the data and models are to be stored. Then we extract the data and prepare it for modeling, finishing by converting it into a TensorFlow Dataset.
+Defines functions used to train the recipe generators.
 """
 
 # import packages
