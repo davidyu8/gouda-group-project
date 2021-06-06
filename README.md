@@ -64,7 +64,7 @@ Using a browser to navigate to http://127.0.0.1:5000/, you can now access the Fl
 
 ## Recipe Finding
 
-Clicking on `Find a Recipe`, we can navigate to the page that allows us to find a recipe given a user specified list of ingredients. For example, let's say we have [_INSERT SOME INGREDIENTS_] in our kitchen. We can input these ingredients into the site, and it will find an appropriate recipe to cook!
+Clicking on `Find a Recipe`, we can navigate to the page that allows us to find a recipe given a user specified list of ingredients. For example, let's say we have potatoes, chives, butter, and pork in our kitchen. We can input these ingredients into the site, and it will find an appropriate recipe to cook!
 
 ![alt text](https://github.com/davidyu8/gouda-group-project/blob/main/flask/images_for_readme/recipe_find.png)
 
@@ -78,7 +78,7 @@ For more information, docstrings, and comments on this function, check the `find
 
 ## Recipe Generating
 
-Clicking on `Create a Recipe`, we can navigate to the page that allows us to generate a new recipe based on an input ingredient. For example, let's say we want to generate a recipe that uses [_INGREDIENT_]. Providing the site with our desired input, it'll try and create a brand-new computer-generated recipe as follows:
+Clicking on `Create a Recipe`, we can navigate to the page that allows us to generate a new recipe based on an input ingredient. For example, let's say we want to generate a recipe that uses meatballs. Providing the site with our desired input, it'll try and create a brand-new computer-generated recipe as follows:
 
 ![alt text](https://github.com/davidyu8/gouda-group-project/blob/main/flask/images_for_readme/recipe_generate.png)
 
@@ -92,6 +92,12 @@ These two steps are relatively simple themselves, but there's quite a bit of aux
 (_note_: in `recipe_generator.ipynb`, a user can actually train an __LSTM__ (long short-term memory) model, which is a bit more rudimentary than the GRU. We haven't included direct accesibility to an LSTM model in the Flask website because its recipe generation is quite nonsensical compared to the GRU, but it can be implemented somewhat easily by a more curious user.)
 
 ## Limitations
+
+As evidenced by the sample recipe output, the generator is a bit lacking. It can produce English text that is largely readable, but the content of the recipe doesn't make a lot of sense. It would certainly be a struggle to cook this, to say nothing of what it would actually taste like.
+
+To mitigate this, we attempted to design a generative adversarial network (GAN) to be the model framework, instead of an LSTM or GRU. A GAN is made up of two parts, a generator (similar to the RNNs we used) and a discriminator, which tries to classify text as either real (originating from an actual recipe) or fake (created by the generator). Over time, the aim is to allow the generator to become better and better at generating text, to the point where the discriminator can no longer tell which is which.
+
+Unfortunately, we were not able to successfully implement this model. So it remains an intriguing and complex extension to our project.
 
 # Conclusion
 We really enjoyed designing and implementing this project. The recipe finder is useful because it can draw upon a huge reservoir to make recipe suggestions in response to detailed user requests. If you want to use up a specific set of ingredients that will expire soon, this function provides a way to quickly obtain only the recipes that satisfy that constraint.
