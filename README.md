@@ -19,7 +19,6 @@ We have several folders and files in this repository. The purpose of each one is
 # Installation
 To use this repository, clone it to your machine and follow these instructions, which will walk you through the process of preparing the recipes1M.db database.
 
-## Data Preparation
 To obtain the data, visit the [pic2recipe](http://pic2recipe.csail.mit.edu/) website, and follow the instructions to download the dataset. This will involve creating an account. Next, download the data from the link labeled "Layers". The file should be about 400 MB in size, and will take a while to download!
 
 Place this file in the top-level directory of your cloned repository and check that the following conditions hold.
@@ -56,18 +55,18 @@ Your command line should now display something similar to the following:
 * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 * Restarting with stat
 * Debugger is active!
-* Debugger PIN: 297-131-663
+* Debugger PIN: 297-133-662
 ```
 
 Using a browser to navigate to http://127.0.0.1:5000/, you can now access the Flask website!
 
-![alt text](https://github.com/davidyu8/gouda-group-project/blob/main/flask/homepage.jpeg)
+![alt text](https://github.com/davidyu8/gouda-group-project/blob/main/flask/images_for_readme/homepage.jpeg)
 
 ## Recipe Finding
 
 Clicking on `Find a Recipe`, we can navigate to the page that allows us to find a recipe given a user specified list of ingredients. For example, let's say we have [_INSERT SOME INGREDIENTS_] in our kitchen. We can input these ingredients into the site, and it will find an appropriate recipe to cook!
 
-[_STUNNING VISUAL OF WEBSITE BEING USED TO FIND RECIPES, NOT INCLUDED AT THE MOMENT BECAUSE COLBY IS BAD WITH FLASK_]
+![alt text](https://github.com/davidyu8/gouda-group-project/blob/main/flask/images_for_readme/recipe_find.png)
 
 This page works by calling our `find_recipe` function, which goes through the following steps to find recipes:
 
@@ -81,7 +80,7 @@ For more information, docstrings, and comments on this function, check the `find
 
 Clicking on `Create a Recipe`, we can navigate to the page that allows us to generate a new recipe based on an input ingredient. For example, let's say we want to generate a recipe that uses [_INGREDIENT_]. Providing the site with our desired input, it'll try and create a brand-new computer-generated recipe as follows:
 
-[_STUNNING VISUAL OF WEBSITE BEING USED TO GENERATE A RECIPE, NOT INCLUDED AT THE MOMENT BECAUSE COLBY IS BAD WITH FLASK_]
+![alt text](https://github.com/davidyu8/gouda-group-project/blob/main/flask/images_for_readme/recipe_generate.png)
 
 Under the hood, this page is using a __GRU__, which is a type of __recurrent neural network__, or __RNN__. Recurrent neural networks are particularly helpful here, as they are able to work with data that is _sequential_, like text in a recipe. In order to use this method of text generation, we call a function `generate_recipe_GRU` that does the following:
 
@@ -91,6 +90,8 @@ Under the hood, this page is using a __GRU__, which is a type of __recurrent neu
 These two steps are relatively simple themselves, but there's quite a bit of auxiliary code that goes into actually making this process happen. The definition of `generate_recipe_GRU` and all of its helper code can be found in the `generators.py` file, contained within the `app` directory used to set up the Flask site.
 
 (_note_: in `recipe_generator.ipynb`, a user can actually train an __LSTM__ (long short-term memory) model, which is a bit more rudimentary than the GRU. We haven't included direct accesibility to an LSTM model in the Flask website because its recipe generation is quite nonsensical compared to the GRU, but it can be implemented somewhat easily by a more curious user.)
+
+## Limitations
 
 # Conclusion
 We really enjoyed designing and implementing this project. The recipe finder is useful because it can draw upon a huge reservoir to make recipe suggestions in response to detailed user requests. If you want to use up a specific set of ingredients that will expire soon, this function provides a way to quickly obtain only the recipes that satisfy that constraint.
