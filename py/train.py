@@ -1,6 +1,4 @@
-"""
-Defines functions used to train the recipe generators.
-"""
+# Defines functions used to train the recipe generators.
 
 # import packages
 import numpy as np # general
@@ -18,7 +16,15 @@ BATCH_SIZE = 64 # for model training
 SHUFFLE_BUFFER_SIZE = 1000 # for model training
 
 def import_data(n):
-  ''' imports the first n recipes from the recipe database. '''
+  '''
+  Loads recipes from the recipes1M.db database.
+
+  Parameters:
+    n (int): the number of recipes to import
+  
+  Returns:
+    pandas DataFrame containing the first n recipes of the database
+  '''
   
   with sqlite3.connect("data/recipes1M.db") as conn:
     query = \
@@ -78,7 +84,19 @@ def split_input_target(recipe):
   return input_text, target_text
 
 def generate(model, seed, length, temperature, tokenizer):
-  ''' generates text of length length, using the provided seed text and model. '''
+  '''
+  Generates recipe text
+
+  Parameters:
+    model: the model (either GRU or LSTM) to use for generation
+    seed: string to start the generation process
+    length: number of characters to generate
+    temperature: the 'creativity' of the model predictions
+    tokenizer: conversions between characters and their numeric indices
+
+  Returns:
+    A string containing the new recipe text.
+  '''
   start = STOP_WORD_TITLE + seed
   indices = np.array(tokenizer.texts_to_sequences([start])) # vectorize
   result = []
