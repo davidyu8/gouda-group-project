@@ -113,3 +113,4 @@ The following outlines the main contributions made by each member of our group.
 
 * David implemented the text generation models that were used to create new recipes. This included building a variety of models to learn from the recipe database, then training, evaluating, and adjusting them, and finally making a version that could quickly generate new recipe text in the web app.
 * Adriel implemented the flask website. This included linking the database and the recipe finder and generation functions into readable py files for flask. This also included making html files which included functionality with Jinja as well a CSS file for the website design.
+* Colby worked on the recipe finder used to query the database for matching recipes. Additionally, he also worked on wrapping the recipe finder and recipe generator into functions that could be run through the Flask website.
